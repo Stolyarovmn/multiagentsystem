@@ -1,0 +1,22 @@
+name: Process Change
+description: Proposal to change framework rules or lifecycle
+title: "PROCESS: "
+labels: ["type:process-change", "status:queued"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Runtime, docs, GitHub process and target-pack compatibility.

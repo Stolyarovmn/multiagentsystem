@@ -1,0 +1,29 @@
+name: Task
+description: Framework task with criteria and evidence
+title: "TASK: "
+labels: ["type:task", "status:queued"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Criteria
+      description: How will we know this is done?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Relevant docs, constraints, target-pack or recovery anchors.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Required Evidence
+      description: Commands, artifacts or review evidence expected.

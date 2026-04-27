@@ -1,0 +1,27 @@
+name: Process Hygiene
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax
+        run: |
+          set -euo pipefail
+          find . -name '*.sh' -print0 | xargs -0 -n1 bash -n
+      - name: Runtime smoke
+        run: ./smoke-runtime.sh
+      - name: Product-neutral guard
+        run: |
+          set -euo pipefail
+          forbidden="$(git ls-files 'STATE.md' 'targets/*.local.md' 'tasks/TASK-*.md')"
+          if [ -n "$forbidden" ]; then
+            echo "Live runtime artifacts must not be committed:"
+            echo "$forbidden"
+            exit 1
+          fi

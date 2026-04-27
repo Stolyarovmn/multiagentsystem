@@ -1,0 +1,34 @@
+name: Dispute
+description: Formal process or architecture dispute
+title: "DISPUTE: "
+labels: ["type:dispute", "status:queued"]
+body:
+  - type: textarea
+    id: conflict
+    attributes:
+      label: Conflict
+    validations:
+      required: true
+  - type: textarea
+    id: position_a
+    attributes:
+      label: Position A
+    validations:
+      required: true
+  - type: textarea
+    id: position_b
+    attributes:
+      label: Position B
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+    validations:
+      required: true
+  - type: textarea
+    id: resolution
+    attributes:
+      label: Resolution
+      description: Filled when the dispute is resolved.

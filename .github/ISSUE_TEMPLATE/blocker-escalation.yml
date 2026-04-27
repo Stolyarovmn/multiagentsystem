@@ -1,0 +1,22 @@
+name: Blocker / Escalation
+description: Runtime or task blocker requiring orchestrator/human decision
+title: "BLOCKER: "
+labels: ["type:blocker", "status:blocked"]
+body:
+  - type: textarea
+    id: blocker
+    attributes:
+      label: Blocker
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: Attempted
+      description: What was tried and what evidence exists?
+  - type: textarea
+    id: needed
+    attributes:
+      label: Needed Decision
+    validations:
+      required: true
