@@ -269,3 +269,27 @@ To recover a file from quarantine:
 ## GitHub Workflow
 
 Use GitHub issues for framework tasks and disputes, PRs for changes, and Actions for hygiene checks. GitHub Pages is optional and must be requested explicitly before implementation.
+
+### Target Project GitHub Issues
+
+When a target-pack points to an external GitHub repository, the orchestrator manages issues there with the same artifact discipline:
+
+- Check existing issues before creating new ones — avoid duplicates.
+- Sign every comment: `— Роль (Модель)`.
+- Write in the language defined by `ISSUE_LANGUAGE` in the target-pack (fallback: README language).
+- If a rule has not completed canonical promotion yet, label it as `proposed` / `pending canon` in the issue thread instead of presenting it as accepted framework canon.
+- Each issue round must advance to a next artifact or explicit decision.
+- Before creating issues: read open issues list first.
+
+### Issue → Artifact Lifecycle
+
+```
+open issue
+  → discuss (each round: add comment + sign)
+  → agree on next artifact type (PR / new issue / TASK / decision)
+  → produce artifact
+  → link artifact in issue
+  → close issue
+```
+
+An issue with only comments and no linked artifact is incomplete.

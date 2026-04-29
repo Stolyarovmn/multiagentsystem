@@ -16,4 +16,4 @@ One file per design decision. Both accepted and rejected decisions are recorded 
 
 | Decision | Status | Summary |
 |----------|--------|---------|
-| *(none yet --- first decisions pending)* | | |
+| `DECISION-agent-github-comment-rules.md` | `accepted` | Canonicalizes target-project issue signatures, `ISSUE_LANGUAGE`, orchestrator delegation boundary, and `pending canon` disclosure. |

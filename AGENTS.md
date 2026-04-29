@@ -49,6 +49,27 @@ The scripts call the shared bootstrap path automatically. A fresh agent should r
 - If a task is connected to an external repository, determine the active target-pack from `STATE.md` or an explicit `targets/<name>.md` first.
 - If a fresh agent cannot continue from committed docs plus local runtime state, continuity is broken.
 
+## Role Boundary: Orchestrator vs Executor
+
+The orchestrator does not perform execution work directly. It:
+
+- creates TASK files and dispatches them to the executor;
+- reviews artifacts produced by the executor and auditor;
+- drives issues and tasks to closure artifacts (PR, decision, TASK, dispute).
+
+If the orchestrator finds itself writing code, running audits, or generating content that belongs to a TASK — stop, create the TASK, and delegate.
+
+## GitHub Issues on Target Projects
+
+When working with GitHub Issues on a target repository:
+
+- **Sign every comment** with your role and model name at the bottom of the comment:
+  `— Роль (Модель)` — example: `— Координатор (Claude Sonnet 4.6)`
+- **Use the language specified in the active target-pack** (`ISSUE_LANGUAGE` field). If not set, default to the language of the target project's README.
+- If a rule is only proposed or exists only as a local draft, describe it in target-project issues as `proposed` / `pending canon`, not as accepted canon.
+- **Every issue must result in a concrete artifact** before it can be closed: a PR, a new issue, a TASK file, a roadmap entry, or an explicit documented decision not to act.
+- Do not leave issues in open discussion state indefinitely — every round of comments should advance the issue toward its next artifact.
+
 ## Legacy Boundary
 
 Documents outside `multiagentsystem` may be read as reference-only sources, but not treated as live canon without an explicit decision.
