@@ -24,7 +24,7 @@ Files:
 - `PRINCIPLES.md`
 - `DISPATCH_SPEC.md`
 - `DISPUTE.md`
-- `STATE.md`
+- `STATE.template.md`
 
 Role:
 

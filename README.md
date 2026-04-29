@@ -69,7 +69,7 @@ The expected economy is simple: humans and agents spend tokens on judgment, desi
 1. `runtime`
    `start.sh`, `watchdog.sh`, `coordinator.sh`, `ws-status.sh`, `stop.sh`.
 2. `canonical control plane`
-   `AGENTS.md`, `MANIFEST.md`, `ARCHITECTURE.md`, `OPERATIONS.md`, `PRINCIPLES.md`, `DISPATCH_SPEC.md`, `DISPUTE.md`, `STATE.md`.
+   `AGENTS.md`, `MANIFEST.md`, `ARCHITECTURE.md`, `OPERATIONS.md`, `PRINCIPLES.md`, `DISPATCH_SPEC.md`, `DISPUTE.md`, `STATE.template.md`.
 3. `continuity and targets`
    `tasks/`, `auditor_logs/`, `memory/`, `targets/`.
 
