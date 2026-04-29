@@ -2,7 +2,7 @@
 
 This repository is the canonical operating layer for agents.
 
-If an agent starts in this repository, it must orient by these files, not by hidden chat history or target-project documents.
+If an agent starts in this repository, it must orient by these files — not by hidden chat history or target-project documents.
 
 ## Read Order
 
@@ -32,10 +32,23 @@ If runtime files are missing, create them without asking the user:
 
 The scripts call the shared bootstrap path automatically. A fresh agent should run `./smoke-runtime.sh` or any runtime command before declaring the system unusable.
 
+## Channels
+
+- `inbox/for-executor.md`
+- `inbox/for-auditor.md`
+- `outbox/for-orchestrator.md`
+- `outbox/metrics.log`
+- `auditor_logs/events.log`
+
 ## Main Rules
 
 - Keep this repository generic; committed files must not depend on a specific target product.
 - Use local target-packs for real target repositories unless a human explicitly asks to publish one.
 - Do not copy chat history into task context.
 - Every system-level decision leaves an artifact: task, dispute, roadmap entry, issue or PR.
+- If a task is connected to an external repository, determine the active target-pack from `STATE.md` or an explicit `targets/<name>.md` first.
 - If a fresh agent cannot continue from committed docs plus local runtime state, continuity is broken.
+
+## Legacy Boundary
+
+Documents outside `multiagentsystem` may be read as reference-only sources, but not treated as live canon without an explicit decision.
