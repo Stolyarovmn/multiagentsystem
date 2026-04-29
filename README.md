@@ -1,4 +1,4 @@
-# MultiAgentSystem
+# Multi-Agent Operating System
 
 `multiagentsystem` is a portable Agentic OS for coordinating AI agents across software projects.
 
@@ -9,9 +9,22 @@ It keeps the operating model separate from any target product:
 - live operational state is local by default and is not committed;
 - GitHub is used for development of this framework through issues, pull requests, process changes, disputes and checks.
 
+It is assembled from three evolutionary sources:
+
+- live continuity and institutional memory from the root workspace;
+- a formalized runtime/spec layer;
+- a target-oriented product overlay layer.
+
+## Goals
+
+- run a real working loop, not a collection of disconnected rules;
+- give a fresh agent a clear read-order and a reproducible runtime;
+- allow any new target repository to be connected through a target-pack;
+- preserve continuity without depending on old chat history.
+
 ## Why GitHub Is Part Of The OS
 
-The local v4 runtime proved that agent work needs explicit state, roles, tasks, audit trails and disputes. The problem is that a purely local control plane makes every fresh agent spend tokens rediscovering the same context: which tasks exist, what changed, what was reviewed, which dispute was resolved and what the current policy is.
+The local runtime proved that agent work needs explicit state, roles, tasks, audit trails and disputes. The problem is that a purely local control plane makes every fresh agent spend tokens rediscovering the same context: which tasks exist, what changed, what was reviewed, which dispute was resolved and what the current policy is.
 
 GitHub is used here as the durable shared control plane for developing this framework. It gives us native IDs, timelines, review surfaces, status checks, permissions and project views without asking an agent to rebuild those structures from chat history or local logs.
 
@@ -51,6 +64,15 @@ The split saves tokens by moving deterministic coordination out of the model's c
 
 The expected economy is simple: humans and agents spend tokens on judgment, design, code and audit; GitHub spends ordinary compute on indexing, status, routing, checks and durable timelines.
 
+## Three Layers
+
+1. `runtime`
+   `start.sh`, `watchdog.sh`, `coordinator.sh`, `ws-status.sh`, `stop.sh`.
+2. `canonical control plane`
+   `AGENTS.md`, `MANIFEST.md`, `ARCHITECTURE.md`, `OPERATIONS.md`, `PRINCIPLES.md`, `DISPATCH_SPEC.md`, `DISPUTE.md`, `STATE.md`.
+3. `continuity and targets`
+   `tasks/`, `auditor_logs/`, `memory/`, `targets/`.
+
 ## Quick Start
 
 1. Read `AGENTS.md`.
@@ -63,16 +85,41 @@ The expected economy is simple: humans and agents spend tokens on judgment, desi
 
 Agents must create missing runtime files themselves from templates or runtime scripts. Do not ask the user to create `STATE.md`, `inbox/`, `outbox/`, `tasks/`, `targets/`, `auditor_logs/`, or `memory/` when the framework can create them safely.
 
-## Layers
+## Automation Report Coverage
 
-- `canonical control plane`: rules, roles, lifecycle and continuity docs.
-- `runtime`: bash/tmux/file IPC scripts for local execution.
-- `target layer`: local target-packs that connect external repositories.
-- `GitHub-native layer`: issue forms, PR template and hygiene checks for framework development.
+The autonomous loop writes timestamped reports under `automation_reports/`:
 
-## Non-Goals
+- `execution/` records concrete target-repo work.
+- `audit/` records review of execution reports.
+- `improvements/` records fixes or no-op decisions made after reading audits.
 
+Use `./automation-report-status.sh` to check whether the streams are aligned. It exits 0 by default for dashboards and human inspection, and `./automation-report-status.sh --strict` exits non-zero when audit or improvement coverage is stale. Automation prompts can use `./automation-report-status.sh --json` for machine-readable routing.
+
+## Read-Order For Fresh Agent
+
+1. `AGENTS.md`
+2. `MANIFEST.md`
+3. `ARCHITECTURE.md`
+4. `OPERATIONS.md`
+5. `STATE.md`
+6. `targets/README.md` if work touches an external repo
+7. active `targets/<name>.md` if one is selected
+8. `tasks/TASK-XXX.md`
+
+## What This Project Intentionally Does Not Do
+
+- It does not copy old chat history into itself.
+- It does not hardwire one product as the meaning of the system.
+- It does not treat legacy docs outside this folder as automatic canon.
 - Do not store target-product chat history here.
 - Do not commit product-specific live state.
 - Do not make target project UI part of this framework UI.
 - Do not treat GitHub Pages as required for v1.
+
+Instead it keeps:
+
+- a working runtime;
+- coherent constitutional rules;
+- a generic target-pack contract;
+- durable task and audit continuity;
+- a place where future evolution leaves artifacts instead of disappearing into chat.
