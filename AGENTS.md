@@ -10,10 +10,11 @@ If an agent starts in this repository, it must orient by these files, not by hid
 2. `ARCHITECTURE.md`
 3. `OPERATIONS.md`
 4. `PRINCIPLES.md`
-5. `STATE.md` if it exists; otherwise create it from `STATE.template.md`
-6. `targets/README.md` if work touches an external repository
-7. the active `targets/<name>.local.md` target-pack if selected
-8. the concrete `tasks/TASK-XXX.md` task file if assigned
+5. `EVOLUTION.md`
+6. `STATE.md` if it exists; otherwise create it from `STATE.template.md`
+7. `targets/README.md` if work touches an external repository
+8. the active `targets/<name>.local.md` target-pack if selected
+9. the concrete `tasks/TASK-XXX.md` task file if assigned
 
 ## Roles
 
