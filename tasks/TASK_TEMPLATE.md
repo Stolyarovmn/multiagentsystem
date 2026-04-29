@@ -7,7 +7,7 @@ TARGET none
 
 ## Goal
 
-<one paragraph>
+<one paragraph describing what must be accomplished>
 
 ## Criteria
 
@@ -16,10 +16,10 @@ TARGET none
 
 ## Context
 
-- Active repo:
-- Baseline repo:
-- Related docs:
-- Constraints:
+- Active repo:         <!-- target project being modified -->
+- Baseline repo:       <!-- reference repo, if any -->
+- Related docs:        <!-- relevant framework or project docs -->
+- Constraints:         <!-- e.g. no_network, readonly -->
 
 ## Dispatch Envelope
 
