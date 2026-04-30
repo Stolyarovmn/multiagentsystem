@@ -88,4 +88,4 @@ The canon now treats the following as accepted framework rules:
 - Source review: none
 - Proposal issue: [#12](https://github.com/Stolyarovmn/multiagentsystem/issues/12)
 - Related issue: [#11](https://github.com/Stolyarovmn/multiagentsystem/issues/11)
-- Implementation PR: local-only promotion for `TASK-007` (no PR opened in this session)
+- Implementation PR: [#13](https://github.com/Stolyarovmn/multiagentsystem/pull/13)
