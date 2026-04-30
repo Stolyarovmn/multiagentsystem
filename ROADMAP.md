@@ -19,6 +19,7 @@ Make `multiagentsystem` the single working canon for multi-agent coordination an
 - Introduce an explicit lifecycle for `canonical / derived / legacy` documents.
 - Add optional GitHub Pages management dashboard only after an explicit issue.
 - Add richer recovery diagnostics for stale local sessions.
+- Track accepted process promotions through versioned decisions; current reference: `decisions/DECISION-agent-github-comment-rules.md`.
 
 ## P2
 
