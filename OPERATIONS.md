@@ -293,3 +293,46 @@ open issue
 ```
 
 An issue with only comments and no linked artifact is incomplete.
+
+## 18. Issue Quality for AI Agents
+
+An issue that an AI agent will act on must be self-contained. The agent has no session memory — each dispatch starts cold. A vague issue wastes a full cycle.
+
+### Required structure (use template `.github/ISSUE_TEMPLATE/task.md`)
+
+```markdown
+## Контекст
+What already exists. Which files are relevant. Why this task is needed now.
+
+## Цель
+One or two sentences: what must work after this is done.
+
+## Затронутые файлы
+- `scripts/build_X.py` — add Y
+- `core/paths.py` — add constant Z
+
+## Acceptance criteria
+- [ ] `python scripts/X.py` exits 0
+- [ ] output appears in `data/reports/`
+- [ ] server restarts without errors
+
+## Не входит в scope
+What is explicitly excluded from this issue.
+```
+
+### Rules
+
+- **No vague goals.** "Реализовать A/B tracker" without acceptance criteria is invalid. An agent cannot know when it is done.
+- **Name the files.** Always list affected files. An agent that has to discover them may touch the wrong ones.
+- **One issue = one artifact.** Do not bundle unrelated changes. Split into separate issues.
+- **Acceptance criteria must be testable.** Each item must be verifiable by running a command or reading a file.
+- **State what exists.** If a partial implementation already exists, name the file and function. An agent that does not know this will reimplement from scratch.
+- **Scope boundary is mandatory.** The "Не входит в scope" section prevents scope creep across sessions.
+
+### Signs of a bad issue (reject and rewrite)
+
+- Title only, no body
+- Body describes a problem but not the expected output
+- No file names mentioned
+- Acceptance criteria contain words like "работает", "выглядит правильно" without a concrete check
+- More than three unrelated changes in one issue
